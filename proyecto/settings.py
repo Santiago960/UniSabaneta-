@@ -31,6 +31,10 @@ ALLOWED_HOSTS = [
     'unisabaneta.onrender.com'
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://unisabaneta.onrender.com'
+]
+
 
 # Application definition
 
