@@ -1,0 +1,53 @@
+{% extends "admin/base.html" %}
+
+{% load static %}
+
+{% block extrastyle %}
+
+<link
+    rel="stylesheet"
+    href="{% static 'admin/css/custom_admin.css' %}"
+>
+
+{% endblock %}
+
+{% block title %}
+UniSabaneta Admin
+{% endblock %}
+
+{% block branding %}
+
+<h1 id="site-name">
+
+    🎓 Administración UniSabaneta
+
+</h1>
+
+{% endblock %}
+
+{% block nav-global %}
+
+<div style="
+    padding:15px;
+    background:#014a9c;
+    border-radius:10px;
+    margin-bottom:20px;
+">
+
+    <a
+        href="/"
+        style="
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+            margin-right:20px;
+        "
+    >
+
+        ← Volver al Inicio
+
+    </a>
+
+</div>
+
+{% endblock %}

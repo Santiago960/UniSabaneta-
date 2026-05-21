@@ -1,0 +1,57 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h2>
+        Reporte de Materias
+    </h2>
+
+    <p>
+        Consulta institucional de materias registradas
+    </p>
+
+</div>
+
+<div class="card">
+
+    <table
+        border="1"
+        width="100%"
+        cellpadding="12"
+        style="
+            border-collapse:collapse;
+            text-align:center;
+        "
+    >
+
+        <tr style="background:#014a9c;color:white;">
+
+            <th>Materia</th>
+
+            <th>Semestre</th>
+
+            <th>Créditos</th>
+
+        </tr>
+
+        {% for materia in materias %}
+
+        <tr>
+
+            <td>{{ materia.nombre }}</td>
+
+            <td>{{ materia.semestre }}</td>
+
+            <td>{{ materia.creditos }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+{% endblock %}

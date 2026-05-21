@@ -1,0 +1,61 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h2>
+        Reporte de Horarios
+    </h2>
+
+    <p>
+        Consulta institucional de horarios académicos
+    </p>
+
+</div>
+
+<div class="card">
+
+    <table
+        border="1"
+        width="100%"
+        cellpadding="12"
+        style="
+            border-collapse:collapse;
+            text-align:center;
+        "
+    >
+
+        <tr style="background:#014a9c;color:white;">
+
+            <th>Materia</th>
+
+            <th>Profesor</th>
+
+            <th>Salón</th>
+
+            <th>Hora</th>
+
+        </tr>
+
+        {% for horario in horarios %}
+
+        <tr>
+
+            <td>{{ horario.materia }}</td>
+
+            <td>{{ horario.profesor }}</td>
+
+            <td>{{ horario.salon }}</td>
+
+            <td>{{ horario.hora }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+{% endblock %}

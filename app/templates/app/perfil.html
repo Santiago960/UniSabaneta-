@@ -1,0 +1,157 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h2>
+        Perfil Universitario
+    </h2>
+
+    <p>
+        Gestiona tu información personal
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    {% if mensaje %}
+
+        <div style="
+            background:#d4edda;
+            color:#155724;
+            padding:15px;
+            border-radius:10px;
+            margin-bottom:20px;
+        ">
+
+            {{ mensaje }}
+
+        </div>
+
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <label>
+            Nombre completo
+        </label>
+
+        <input
+            type="text"
+            name="nombre"
+            value="{{ perfil.nombre_completo }}"
+            placeholder="Ingresa tu nombre completo"
+        >
+
+
+        <label>
+            Foto de perfil
+        </label>
+
+        <input
+            type="file"
+            name="foto"
+        >
+
+        <br><br>
+
+        {% if perfil.foto %}
+
+            <img
+                src="{{ perfil.foto.url }}"
+                width="160"
+                style="
+                    border-radius:50%;
+                    margin-bottom:20px;
+                    border:5px solid #014a9c;
+                "
+            >
+
+        {% endif %}
+
+        <br>
+
+        <button type="submit">
+
+            Guardar cambios
+
+        </button>
+
+    </form>
+
+</div>
+
+
+<div class="card">
+
+    <h3>
+        Información Universitaria
+    </h3>
+
+    <br>
+
+    <p>
+
+        <strong>Usuario:</strong>
+
+        {{ user.username }}
+
+    </p>
+
+    <br>
+
+    <p>
+
+        <strong>Rol:</strong>
+
+        {% if user.is_superuser %}
+
+            Director / Administrador
+
+        {% elif "maestro" in user.username|lower %}
+
+            Maestro
+
+        {% else %}
+
+            Estudiante
+
+        {% endif %}
+
+    </p>
+
+    <br>
+
+    <p>
+
+        <strong>ID Usuario:</strong>
+
+        {{ user.id }}
+
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h3>
+        Opciones de Cuenta
+    </h3>
+
+    <br>
+
+    <button>
+
+        Cambiar Contraseña
+
+    </button>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h2>
+        Cursos de Inglés
+    </h2>
+
+    <p>
+        Mejora tus habilidades internacionales
+    </p>
+
+</div>
+
+
+{% for curso in cursos %}
+
+<div class="card">
+
+    <h3>
+
+        {{ curso.nivel }}
+
+    </h3>
+
+    <br>
+
+    <p>
+
+        {{ curso.descripcion }}
+
+    </p>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}

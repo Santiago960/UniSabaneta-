@@ -1,0 +1,62 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h2>
+        Horarios Universitarios
+    </h2>
+
+    <p>
+        Consulta tus horarios académicos
+    </p>
+
+</div>
+
+
+{% for horario in horarios %}
+
+<div class="card">
+
+    <h3>
+
+        {{ horario.materia }}
+
+    </h3>
+
+    <br>
+
+    <p>
+
+        <strong>Profesor:</strong>
+
+        {{ horario.profesor }}
+
+    </p>
+
+    <br>
+
+    <p>
+
+        <strong>Salón:</strong>
+
+        {{ horario.salon }}
+
+    </p>
+
+    <br>
+
+    <p>
+
+        <strong>Hora:</strong>
+
+        {{ horario.hora }}
+
+    </p>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}

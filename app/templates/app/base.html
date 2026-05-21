@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>UniSabaneta</title>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#eef2f7;
+            margin:0;
+        }
+
+        header{
+            background:linear-gradient(90deg,#002855,#014a9c);
+            color:white;
+            padding:30px;
+            text-align:center;
+        }
+
+        nav{
+            background:#003b80;
+            padding:15px;
+            text-align:center;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin:15px;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            color:gold;
+        }
+
+        .container{
+            width:90%;
+            margin:auto;
+            padding:30px;
+        }
+
+        .card{
+            background:white;
+            padding:25px;
+            border-radius:15px;
+            margin-bottom:20px;
+            box-shadow:0px 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
+            transition:0.3s;
+        }
+
+        .hero{
+            background:linear-gradient(90deg,#002855,#014a9c);
+            color:white;
+            padding:60px;
+            border-radius:20px;
+            margin-bottom:30px;
+            text-align:center;
+        }
+
+        .hero h2{
+            font-size:42px;
+        }
+
+        button{
+            background:#014a9c;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            border-radius:10px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#002855;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            margin-top:10px;
+            margin-bottom:20px;
+            border-radius:10px;
+            border:1px solid #ccc;
+        }
+
+        footer{
+            background:#002855;
+            color:white;
+            text-align:center;
+            padding:20px;
+            margin-top:40px;
+        }
+
+        .info-box{
+            background:#fff3cd;
+            color:#856404;
+            padding:15px;
+            border-radius:10px;
+            margin-bottom:20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>UniSabaneta 🎓</h1>
+
+</header>
+
+<nav>
+
+    <a href="/">Inicio</a>
+
+    <a href="/materias/">Materias</a>
+
+    <a href="/ingles/">Inglés</a>
+
+    <a href="/recomendacion/">Recomendación</a>
+
+    <a href="/reporte-materias/">
+    Reporte Materias
+</a>
+
+<a href="/reporte-horarios/">
+    Reporte Horarios
+</a>
+
+    {% if user.is_authenticated %}
+
+        <a href="/perfil/">Perfil</a>
+
+        <a href="/horarios/">Horarios</a>
+
+        <a href="#">
+            Bienvenido {{ user.username }}
+        </a>
+
+        {% if user.is_superuser %}
+
+            <a href="/admin/">
+                Panel Director
+            </a>
+
+        {% endif %}
+
+        <a href="/logout/">
+            Cerrar sesión
+        </a>
+
+    {% else %}
+
+        <a href="/login/">
+            Login
+        </a>
+
+        <a href="/registro/">
+            Registro
+        </a>
+
+    {% endif %}
+
+</nav>
+
+<div class="container">
+
+    <div class="info-box">
+
+        {% if request.path == "/" %}
+
+            Bienvenido al sistema universitario UniSabaneta.
+
+        {% elif request.path == "/materias/" %}
+
+            Aquí puedes seleccionar tus materias.
+
+        {% elif request.path == "/ingles/" %}
+
+            Consulta los cursos de inglés disponibles.
+
+        {% elif request.path == "/recomendacion/" %}
+
+            Recomendaciones académicas inteligentes.
+
+        {% elif request.path == "/perfil/" %}
+
+            Gestiona tu perfil universitario.
+
+        {% elif request.path == "/horarios/" %}
+
+            Consulta tus horarios universitarios.
+
+        {% elif request.path == "/login/" %}
+
+            Ingresa al sistema universitario.
+
+        {% elif request.path == "/registro/" %}
+
+            Crea una cuenta universitaria.
+
+        {% endif %}
+
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+</div>
+
+<footer>
+
+    Sistema hecho por Santiago Andrés Marín Ramos
+
+</footer>
+
+</body>
+</html>

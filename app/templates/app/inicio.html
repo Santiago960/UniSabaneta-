@@ -1,0 +1,106 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h2>
+        Bienvenido a UniSabaneta
+    </h2>
+
+    <p>
+        Plataforma universitaria inteligente para gestión académica
+    </p>
+
+    <br>
+
+    {% if user.is_authenticated %}
+
+        <a href="/materias/">
+            <button>
+                Ver materias
+            </button>
+        </a>
+
+    {% else %}
+
+        <a href="/login/">
+            <button>
+                Iniciar sesión
+            </button>
+        </a>
+
+    {% endif %}
+
+</div>
+
+
+<div class="card">
+
+    <h2>
+        Sistema Académico
+    </h2>
+
+    <p>
+
+        UniSabaneta permite gestionar:
+
+    </p>
+
+    <ul>
+
+        <li>
+            Elección de materias
+        </li>
+
+        <li>
+            Horarios universitarios
+        </li>
+
+        <li>
+            Cursos de inglés
+        </li>
+
+        <li>
+            Recomendaciones inteligentes
+        </li>
+
+        <li>
+            Gestión estudiantil
+        </li>
+
+    </ul>
+
+</div>
+
+
+<div class="card">
+
+    <h2>
+        Roles del sistema
+    </h2>
+
+    <br>
+
+    <p>
+        Director:
+        administra la universidad.
+    </p>
+
+    <br>
+
+    <p>
+        Maestro:
+        organiza materias y horarios.
+    </p>
+
+    <br>
+
+    <p>
+        Estudiante:
+        consulta materias y recomendaciones.
+    </p>
+
+</div>
+
+{% endblock %}

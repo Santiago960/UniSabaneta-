@@ -1,0 +1,80 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h2>
+        Recomendación Inteligente
+    </h2>
+
+    <p>
+        Sistema de apoyo académico basado en IA
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h3>
+
+        Materias recomendadas
+
+    </h3>
+
+    <br>
+
+    <p>
+
+        Basado en análisis académico,
+        recomendamos comenzar con materias fundamentales.
+
+    </p>
+
+</div>
+
+
+{% for materia in materias %}
+
+<div class="card">
+
+    <h3>
+
+        {{ materia.nombre }}
+
+    </h3>
+
+    <br>
+
+    <p>
+
+        <strong>Semestre:</strong>
+
+        {{ materia.semestre }}
+
+    </p>
+
+    <br>
+
+    <p>
+
+        <strong>Créditos:</strong>
+
+        {{ materia.creditos }}
+
+    </p>
+
+    <br>
+
+    <button>
+
+        Recomendada por IA
+
+    </button>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}
